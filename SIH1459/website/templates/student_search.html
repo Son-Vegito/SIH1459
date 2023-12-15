@@ -20,7 +20,8 @@
         <tbody class="table-group-divider">
             {% for record in result_search %}
             <tr>
-                <td >{{record.uid}} </td>
+
+                <td ><a href="{% url 'student_details' record.uid %}">{{record.uid}}</a> </td>
                 <td >{{record.first_name}} {{record.last_name}}</td>
                 <td >{{record.admission_year}}</td>
                 <td >{{record.date_of_birth}}</td>

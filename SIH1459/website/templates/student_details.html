@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{%block content %}
+
+<div class="card" style="width: 21rem; ">
+    <div class="card-header"><strong>{{ student.first_name }} {{ student.last_name }}</strong></div>
+    <div class="card-body">
+        <h5 class="card-title">Details</h5>
+        <p class="card-text ">
+            <strong>UID: </strong>{{ student.uid }} </br>
+            <strong>Admission Year: </strong>{{ student.admission_year }} </br>
+            <strong>Date Of Birth: </strong>{{ student.date_of_birth }} </br>
+            <strong>Course Id: </strong>{{ student.course }} </br>
+            <strong>College Id: </strong>{{ student.college }} </br>
+            <strong>Aadhar Id: </strong>{{ student.aadhar_id }} </br>
+            <strong>Scheme: </strong>{{ student.scheme}} </br>
+
+        </p>
+    </div>
+</div>
+
+
+<div class="card" style="width: 21rem; ">
+    <div class="card-header"><strong>{{ college.name }} </strong></div>
+    <div class="card-body">
+        <h5 class="card-title">Details</h5>
+        <p class="card-text ">
+            <strong>Code: </strong>{{ college.code }} </br>
+            <strong>State: </strong>{{ college.state }} </br>
+            <strong>City: </strong>{{ college.city }} </br>
+            <strong>Pincode: </strong>{{ college.pincode }} </br>
+            <strong>Address: </strong>{{ college.address}} </br>
+            <strong>Phone: </strong>{{ college.phone }} </br>
+
+        </p>
+    </div>
+</div>
+
+
+    <div class="card" style="width: 21rem; ">
+        <div class="card-header"><strong>{{ course.name }} </strong></div>
+        <div class="card-body">
+            <h5 class="card-title">Details</h5>
+            <p class="card-text ">
+                <strong>Code: </strong>{{ course.code }} </br>
+                <strong>Duration: </strong>{{ course.duration }} </br>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="card" style="width: 21rem;">
+        <div class="card-header"><strong>{{ scheme.name }} </strong></div>
+        <div class="card-body">
+            <h5 class="card-title">Details</h5>
+            <p class="card-text ">
+                <strong>Code: </strong>{{scheme.id}} </br>
+            </p>
+        </div>
+    </div>
+
+    {% endblock %}

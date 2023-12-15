@@ -5,7 +5,7 @@ from .models import Scheme, Course, College,State,Student
 
 
 class AddSchemeForm(forms.ModelForm):
-    id = forms.CharField(required=True,
+    id = forms.DecimalField(required=True,
                          widget=forms.widgets.TextInput(attrs={'placeholder': 'Scheme ID', 'class': 'form-control'}),
                          label='')
     name = forms.CharField(required=True,
@@ -74,7 +74,7 @@ class AddCollegeForm(forms.ModelForm):
 class AddStudentForm(forms.ModelForm):
     first_name = forms.CharField(required=True,
                                  widget=forms.widgets.TextInput(
-                                     attrs={'placeholder': 'First Name', 'class': 'form-control'}),
+                                     attrs={'placeholder': 'First Name', 'class': 'form-control', }),
                                  label='')
     last_name = forms.CharField(required=True,
                            widget=forms.widgets.TextInput(
@@ -93,7 +93,7 @@ class AddStudentForm(forms.ModelForm):
                           widget=forms.widgets.TextInput(
                               attrs={'placeholder': 'Date of Birth', 'class': 'form-control'}),
                           label='')
-    course = forms.ModelChoiceField(queryset=Course.objects.all(), required=True,label='Course')
+    course = forms.ModelChoiceField(queryset=(Course.objects.all()), required=True,label='Course')
 
     college = forms.ModelChoiceField(queryset=College.objects.all(), required=True, label='College')
 

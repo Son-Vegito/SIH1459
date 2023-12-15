@@ -51,7 +51,7 @@ class Course(models.Model):
 
 class Scheme(models.Model):
     name = models.CharField('Scheme Name', null=False, blank=False,max_length=100)
-    id = models.CharField('Scheme Id', primary_key=True, max_length=2)
+    id = models.DecimalField('Scheme Id', primary_key=True, max_length=2, max_digits=2, decimal_places=0)
     created_at = models.DateTimeField('Scheme Creation Date', auto_now_add=True)
 
     class Meta:

@@ -145,6 +145,13 @@ def add_student(request):
     form = AddStudentForm(request.POST or None)
     if request.user.is_authenticated:
         if request.method == 'POST':
+            # admission_year = form.data['admission_year']
+            # college_code = form.data['college']
+            # course_code = form.data['course']
+            # roll_number = form.data['uid']
+            # uid = str(admission_year)[-2:] + str(college_code)+str(course_code)+str(roll_number)[-3:]
+            # form.uid = uid
+            # form1.data['uid']= uid
             if form.is_valid():
                 form.save()
                 messages.success(request, 'Student Added')
@@ -240,3 +247,20 @@ def student_page(request):
     else:
         messages.success(request, 'You must be logged in ')
         return redirect('home')
+
+
+def student_details(request, uid):
+    uid = str(uid)
+    uid = uid.strip()
+    if request.user.is_authenticated:
+        student = Student.objects.get(uid=uid)
+        college = College.objects.get(code=uid[2:7])
+        course = Course.objects.get(code=uid[7:9])
+        if student.scheme:
+            scheme = Scheme.objects.get(name= student.scheme)
+            return render(request, 'student_details.html', {'student': student, 'college':college, 'course':course, 'scheme':scheme})
+        else:
+            return render(request, 'student_details.html', {'student': student, 'college':college, 'course':course})
+    else:
+        messages.success(request, 'You must be logged in ')
+        return redirect(home)
