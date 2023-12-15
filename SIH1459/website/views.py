@@ -240,7 +240,6 @@ def student_search(request):
         return redirect('home')
 
 
-
 def student_page(request):
     if request.user.is_authenticated:
         return render(request, 'student_page.html', {})
@@ -254,13 +253,36 @@ def student_details(request, uid):
     uid = uid.strip()
     if request.user.is_authenticated:
         student = Student.objects.get(uid=uid)
-        college = College.objects.get(code=uid[2:7])
-        course = Course.objects.get(code=uid[7:9])
+        college = student.college
+        course = student.course
         if student.scheme:
-            scheme = Scheme.objects.get(name= student.scheme)
-            return render(request, 'student_details.html', {'student': student, 'college':college, 'course':course, 'scheme':scheme})
+            scheme = Scheme.objects.get(name=student.scheme)
+            return render(request, 'student_details.html',
+                          {'student': student, 'college': college, 'course': course, 'scheme': scheme})
         else:
-            return render(request, 'student_details.html', {'student': student, 'college':college, 'course':course})
+            return render(request, 'student_details.html', {'student': student, 'college': college, 'course': course})
+    else:
+        messages.success(request, 'You must be logged in ')
+        return redirect(home)
+
+
+# show colleges in state
+def state_college(request, state_code):
+    state = State.objects.get(code=state_code)
+    colleges = state.college_set.all()
+    return render(request, 'state_college.html', {'colleges': colleges, 'state': state})
+
+
+# show students in college
+def college_student(request, college_code):
+    college = College.objects.get(code=college_code)
+    students=college.student_set.all()
+    return render(request, 'college_student.html', {'students': students, 'college':college})
+
+def college_details(request, college_code):
+    if request.user.is_authenticated:
+        college = College.objects.get(code=college_code)
+        return render(request, 'college_details.html', {'college': college})
     else:
         messages.success(request, 'You must be logged in ')
         return redirect(home)

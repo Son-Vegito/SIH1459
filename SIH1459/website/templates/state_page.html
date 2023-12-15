@@ -12,6 +12,7 @@
             <tr>
                 <th scope="col">State Code</th>
                 <th scope="col">State Name</th>
+                <th scope ='col'>List Colleges</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -19,6 +20,7 @@
             <tr>
                 <td>{{record.name}}</td>
                 <td>{{record.code}}</td>
+                <td><a href="{% url 'state_college' record.code %}" class="btn btn-sm btn-secondary">List Colleges</a></td>
             </tr>
             {% endfor %}
         </tbody>

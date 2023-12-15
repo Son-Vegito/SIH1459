@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if students %}
+        <h2>Students of {{ college }}</h2>
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">UID</th>
+                <th scope="col">Student Name</th>
+                <th scope ='col'>Details</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for student in students %}
+            <tr>
+                <td>{{student.uid}}</td>
+                <td>{{student.first_name}} {{ student.last_name }}</td>
+                <td><a href="{% url 'student_details' student.uid %}" class="btn btn-sm btn-secondary">Details</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <h3>No Student in {{ college }}</h3>
+    {% endif %}
+    <div class="col-ms-6 mx-auto "  style="text-align: center;">
+        <a href = "{% url 'state_page' %} " class ="btn btn-primary " >Go Back</a>
+    </div>
+{% endblock %}

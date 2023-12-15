@@ -102,11 +102,11 @@ class AddStudentForm(forms.ModelForm):
                                    attrs={'placeholder': 'Aadhar ID ', 'class': 'form-control'}),
                                label='')
 
-    scheme = forms.ModelChoiceField(queryset=Scheme.objects.all(), required=False,label='Scheme', blank=True)
+    state = forms.ModelChoiceField(queryset=State.objects.all(), required=True,label='State')
 
     class Meta:
         model = Student
-        fields = ('first_name', 'last_name','uid', 'admission_year', 'date_of_birth', 'course', 'college', 'aadhar_id')
+        fields = ('first_name', 'last_name','uid', 'admission_year', 'date_of_birth', 'course', 'college', 'aadhar_id','state')
 
 
 class SearchStudentForm(forms.ModelForm):

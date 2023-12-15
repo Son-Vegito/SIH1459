@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{%block content %}
+
+<div class="card" style="width: 21rem; ">
+    <div class="card-header"><strong>{{ college.name }} </strong></div>
+    <div class="card-body">
+        <h5 class="card-title">Details</h5>
+        <p class="card-text ">
+            <strong>Code: </strong>{{ college.code }} </br>
+            <strong>State: </strong>{{ college.state }} </br>
+            <strong>City: </strong>{{ college.city }} </br>
+            <strong>Pincode: </strong>{{ college.pincode }} </br>
+            <strong>Address: </strong>{{ college.address}} </br>
+            <strong>Phone: </strong>{{ college.phone }} </br>
+
+        </p>
+    </div>
+</div>
+
+    {% endblock %}

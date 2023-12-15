@@ -21,8 +21,11 @@ urlpatterns = [
     path('add_scheme/', views.add_scheme, name='add_scheme'),
 
     path("state_page", views.state_page, name='state_page'),
+    path("state_college/<state_code>", views.state_college, name='state_college'),
 
 
     path("college_page", views.college_page, name='college_page'),
+    path("college_student/<college_code>", views.college_student, name='college_student'),
     path('add_college/', views.add_college , name='add_college'),
+    path('college_details/<college_code>', views.college_details, name='college_details'),
 ]

@@ -17,6 +17,7 @@
                 <th scope="col">College Pincode</th>
                 <th scope="col">College Address</th>
                 <th scope="col">College Phone</th>
+                <th scope="col">Details</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -29,6 +30,7 @@
                 <td>{{record.pincode}}</td>
                 <td>{{record.address}}</td>
                 <td>{{record.phone}}</td>
+                <td><a href="{% url 'college_details' record.code %}" class="btn btn-sm btn-secondary">Details</a></td>
             </tr>
             {% endfor %}
         </tbody>
