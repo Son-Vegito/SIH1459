@@ -3,57 +3,84 @@
 {% block content %}
 
     {% if user.is_authenticated %}
-{#        <div class="shadow col-ms-6 mx-auto heading dash_box"  style="text-align: center;">#}
-            <h1>Dashboard</h1>
+        {#        <div class="shadow col-ms-6 mx-auto heading dash_box"  style="text-align: center;">#}
+        <h1>Dashboard</h1>
         <div class="col-ms-6 mx-auto home_page d-flex justify-content-evenly">
-        <a href="{% url 'student_page'%}" class ="btn btn-dark flex_1" ><i class="bi bi-people home_page_icon"  ></i><br/>Student records</a>
-        <a href="{% url 'courses_page'%}" class ="btn btn-dark flex_1" ><i class="bi bi-mortarboard home_page_icon"  ></i><br/>Courses</a>
-        <a href="{% url 'schemes_page'%}" class ="btn btn-dark flex_1" ><i class="bi bi-journal-text home_page_icon"  ></i><br/>Schemes</a>
-        <a href="{% url 'state_page'%}"  class ="btn btn-dark flex_1"><i class="bi bi-geo-alt home_page_icon"  ></i><br/>States </a>
-        <a href="{% url 'college_page'%}" class ="btn btn-dark flex_1" ><i class="bi bi-buildings home_page_icon" ></i><br/>Colleges</a>
+            <a href="{% url 'student_page' %}" class="btn btn-dark flex_1"><i
+                    class="bi bi-people home_page_icon"></i><br/>Student records</a>
+            <a href="{% url 'courses_page' %}" class="btn btn-dark flex_1"><i
+                    class="bi bi-mortarboard home_page_icon"></i><br/>Courses</a>
+            <a href="{% url 'schemes_page' %}" class="btn btn-dark flex_1"><i
+                    class="bi bi-journal-text home_page_icon"></i><br/>Schemes</a>
+            <a href="{% url 'state_page' %}" class="btn btn-dark flex_1"><i
+                    class="bi bi-geo-alt home_page_icon"></i><br/>States </a>
+            <a href="{% url 'college_page' %}" class="btn btn-dark flex_1"><i
+                    class="bi bi-buildings home_page_icon"></i><br/>Colleges</a>
         </div>
 
-<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{% static '/ajadiKaAmrit.jpg' %}" class="d-block w-100  img_home" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="{% static '/swachBhart.jpg'%}" class="d-block w-100  img_home" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="{% static '/g20digitalindia.png'%}" class="d-block w-100 img_home" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static '/ajadiKaAmrit.jpg' %}" class="d-block w-100  img_home" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/swachBhart.jpg' %}" class="d-block w-100  img_home" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/g20digitalindia.png' %}" class="d-block w-100 img_home" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        {#        add your vision and objective #}
+        <br>
+        <div class="our_vision">
+            <h5><u>Our Vision</u></h5>
+            <p> "To be a world-class organization leading technological and socio-economic
+                development of the country by enhancing the global competitiveness of technical
+                manpower and by ensuring high quality technical education to all section of the
+                society.</p>
+        </div>
+        <h5><u>Our Objectives</u></h5>
+        <div class="our_objective row">
+
+            <p class="col"> Promotion of Quality in Technical Education</p>
+            <p class="col"> Planning and Coordinated Development of Technical Education System</p>
+            <p class="col"> Regulations and Maintenance of Norms and</p>
+
+        </div>
+
+{#end here both#}
+
 
     {% else %}
-<div class="shadow login_box">
-    <h1 id="home_login"><b>Login</b></h1>
-    <br>
+        <div class="shadow login_box">
+            <h1 id="home_login"><b>Login</b></h1>
+            <br>
 
-    <form method="POST" action="{% url 'home' %}" class="col-md-4 offset-md-4 user_box ">
-        {% csrf_token %}
-        <div class="mb-3">
-            <input type="text" class="form-control "  name="username" placeholder="Username" required>
+            <form method="POST" action="{% url 'home' %}" class="col-md-4 offset-md-4 user_box ">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <input type="text" class="form-control " name="username" placeholder="Username" required>
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control " name="password" placeholder="Password" required>
+                </div>
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-dark">Login</button>
+                </div>
+            </form>
         </div>
-        <div class="mb-3">
-            <input type="password" class="form-control " name="password" placeholder="Password" required>
-        </div>
-        <br>
-        <div class="text-center">
-            <button type="submit" class="btn btn-dark">Login</button>
-        </div>
-    </form>
-</div>
     {% endif %}
 
 {% endblock %}

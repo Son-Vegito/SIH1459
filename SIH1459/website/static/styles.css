@@ -38,7 +38,8 @@
 }
 
 .img_home{
-    height: 350px;
+    height: 450px;
+    width: auto;
     margin-top: 40px;
 }
 
@@ -59,7 +60,7 @@
     width: 65%;
     margin-left:18% ;
 }
-h1,h2{
+h1,h2 {
     text-align: center;
     font-weight: bold;
 }
@@ -114,4 +115,23 @@ h1,h2{
 
     background-color: white;
     margin: 0;
+}
+
+/*my change*/
+*{
+    margin: 0;
+    padding: 0;
+
+}
+h5{
+    text-align: center;
+}
+
+.our_vision {
+   text-align: center;
+    /*background-color: #A9A9A9;*/
+    font-family:Arial ;
+}
+.our_objective{
+
 }
