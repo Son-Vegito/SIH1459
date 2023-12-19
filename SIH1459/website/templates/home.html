@@ -41,30 +41,44 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        {#        add your vision and objective #}
-        <br>
-        <div class="our_vision">
-            <h5><u>Our Vision</u></h5>
-            <p> "To be a world-class organization leading technological and socio-economic
-                development of the country by enhancing the global competitiveness of technical
-                manpower and by ensuring high quality technical education to all section of the
-                society.</p>
-        </div>
-        <h5><u>Our Objectives</u></h5>
-        <div class="our_objective row">
 
-            <p class="col"> Promotion of Quality in Technical Education</p>
-            <p class="col"> Planning and Coordinated Development of Technical Education System</p>
-            <p class="col"> Regulations and Maintenance of Norms and</p>
+        <!-- about section-->
 
-        </div>
-
-{#end here both#}
-
+        <section id="about" class="about section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-12">
+                        <div >
+                            <img src="{% static '/bulding.jpg' %}" alt="" class="image-fluid about-img">
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
+                        <div class="about-text ">
+                            <h5 style="font-size:25px">About Us</h5>
+                            <p>The beginning of formal technical education in India can be dated back to the mid-19th
+                                century. Major policy initiatives in the pre-independence period included the
+                                appointment of the Indian Universities Commission in 1902, issue of the Indian Education
+                                Policy Resolution in 1904, and the Governor General’s policy statement of 1913 stressing
+                                the importance of technical education, the establishment of IISc in Bangalore, Institute
+                                for Sugar, Textile & Leather Technology in Kanpur, N.C.E. in Bengal in 1905, and
+                                industrial schools in several provinces.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     {% else %}
+        <div class="wlcm"><h3>Welcome To AICTE</h3><br>
+            <p class="parag">The beginning of formal technical education in India can be dated back <br>to the mid-19th
+                century.The
+                All India Council for Technical Education <br>(AICTE) is a premier national body established by an Act
+                of Parliament to<br> ensure the coordinated development and quality assurance of technical<br> education
+                in India. Founded in 1945, AICTE has been instrumental in<br> fostering excellence in engineering,
+                technology, management, and other <br>allied disciplines.</p>
+        </div>
         <div class="shadow login_box">
-            <h1 id="home_login"><b>Login</b></h1>
+            <h1 id="home_login">Login</h1>
             <br>
 
             <form method="POST" action="{% url 'home' %}" class="col-md-4 offset-md-4 user_box ">
@@ -81,6 +95,7 @@
                 </div>
             </form>
         </div>
+
     {% endif %}
 
 {% endblock %}
