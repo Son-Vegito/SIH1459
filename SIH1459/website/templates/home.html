@@ -3,57 +3,99 @@
 {% block content %}
 
     {% if user.is_authenticated %}
-{#        <div class="shadow col-ms-6 mx-auto heading dash_box"  style="text-align: center;">#}
-            <h1>Dashboard</h1>
+        {#        <div class="shadow col-ms-6 mx-auto heading dash_box"  style="text-align: center;">#}
+        <h1>Dashboard</h1>
         <div class="col-ms-6 mx-auto home_page d-flex justify-content-evenly">
-        <a href="{% url 'student_page'%}" class ="btn btn-dark flex_1" ><i class="bi bi-people home_page_icon"  ></i><br/>Student records</a>
-        <a href="{% url 'courses_page'%}" class ="btn btn-dark flex_1" ><i class="bi bi-mortarboard home_page_icon"  ></i><br/>Courses</a>
-        <a href="{% url 'schemes_page'%}" class ="btn btn-dark flex_1" ><i class="bi bi-journal-text home_page_icon"  ></i><br/>Schemes</a>
-        <a href="{% url 'state_page'%}"  class ="btn btn-dark flex_1"><i class="bi bi-geo-alt home_page_icon"  ></i><br/>States </a>
-        <a href="{% url 'college_page'%}" class ="btn btn-dark flex_1" ><i class="bi bi-buildings home_page_icon" ></i><br/>Colleges</a>
+            <a href="{% url 'student_page' %}" class="btn btn-dark flex_1"><i
+                    class="bi bi-people home_page_icon"></i><br/>Student records</a>
+            <a href="{% url 'courses_page' %}" class="btn btn-dark flex_1"><i
+                    class="bi bi-mortarboard home_page_icon"></i><br/>Courses</a>
+            <a href="{% url 'schemes_page' %}" class="btn btn-dark flex_1"><i
+                    class="bi bi-journal-text home_page_icon"></i><br/>Schemes</a>
+            <a href="{% url 'state_page' %}" class="btn btn-dark flex_1"><i
+                    class="bi bi-geo-alt home_page_icon"></i><br/>States </a>
+            <a href="{% url 'college_page' %}" class="btn btn-dark flex_1"><i
+                    class="bi bi-buildings home_page_icon"></i><br/>Colleges</a>
         </div>
 
-<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{% static '/ajadiKaAmrit.jpg' %}" class="d-block w-100  img_home" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="{% static '/swachBhart.jpg'%}" class="d-block w-100  img_home" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="{% static '/g20digitalindia.png'%}" class="d-block w-100 img_home" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static '/ajadiKaAmrit.jpg' %}" class="d-block w-100  img_home" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/swachBhart.jpg' %}" class="d-block w-100  img_home" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static '/g20digitalindia.png' %}" class="d-block w-100 img_home" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!-- about section-->
+
+        <section id="about" class="about section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-12">
+                        <div >
+                            <img src="{% static '/bulding.jpg' %}" alt="" class="image-fluid about-img">
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
+                        <div class="about-text ">
+                            <h5 style="font-size:25px">About Us</h5>
+                            <p>The beginning of formal technical education in India can be dated back to the mid-19th
+                                century. Major policy initiatives in the pre-independence period included the
+                                appointment of the Indian Universities Commission in 1902, issue of the Indian Education
+                                Policy Resolution in 1904, and the Governor General’s policy statement of 1913 stressing
+                                the importance of technical education, the establishment of IISc in Bangalore, Institute
+                                for Sugar, Textile & Leather Technology in Kanpur, N.C.E. in Bengal in 1905, and
+                                industrial schools in several provinces.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     {% else %}
-<div class="shadow login_box">
-    <h1 id="home_login"><b>Login</b></h1>
-    <br>
+        <div class="wlcm"><h3>Welcome To AICTE</h3><br>
+            <p class="parag">The beginning of formal technical education in India can be dated back <br>to the mid-19th
+                century.The
+                All India Council for Technical Education <br>(AICTE) is a premier national body established by an Act
+                of Parliament to<br> ensure the coordinated development and quality assurance of technical<br> education
+                in India. Founded in 1945, AICTE has been instrumental in<br> fostering excellence in engineering,
+                technology, management, and other <br>allied disciplines.</p>
+        </div>
+        <div class="shadow login_box">
+            <h1 id="home_login">Login</h1>
+            <br>
 
-    <form method="POST" action="{% url 'home' %}" class="col-md-4 offset-md-4 user_box ">
-        {% csrf_token %}
-        <div class="mb-3">
-            <input type="text" class="form-control "  name="username" placeholder="Username" required>
+            <form method="POST" action="{% url 'home' %}" class="col-md-4 offset-md-4 user_box ">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <input type="text" class="form-control " name="username" placeholder="Username" required>
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control " name="password" placeholder="Password" required>
+                </div>
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-dark">Login</button>
+                </div>
+            </form>
         </div>
-        <div class="mb-3">
-            <input type="password" class="form-control " name="password" placeholder="Password" required>
-        </div>
-        <br>
-        <div class="text-center">
-            <button type="submit" class="btn btn-dark">Login</button>
-        </div>
-    </form>
-</div>
+
     {% endif %}
 
 {% endblock %}
