@@ -286,3 +286,22 @@ def college_details(request, college_code):
     else:
         messages.success(request, 'You must be logged in ')
         return redirect(home)
+
+
+def update_student(request, uid):
+    if request.user.is_authenticated:
+        current_record = Student.objects.get(uid=uid)
+        form = AddStudentForm(request.POST or None, instance=current_record)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Record has been updated')
+            return redirect('home')
+        return render(request, 'update_student.html', {'form': form})
+    else:
+        messages.success(request, 'You must be logged in')
+        return redirect('home')
+
+
+
+def base(request):
+    return render(request, 'base.html', {})

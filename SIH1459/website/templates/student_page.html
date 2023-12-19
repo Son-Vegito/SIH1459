@@ -1,18 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-    <form class="d-flex" method="POST" action="{% url 'student_search' %}">
+    <form class="d-flex srch_dwn" method="POST" action="{% url 'student_search' %}">
         {% csrf_token %}
-        <label for="search_by">Search by</label>
-        <select name="search_by" id="search_by">
+        <label for="search_by" class="srch">Search by</label>
+        <select name="search_by" id="search_by" class="srch_uid">
 
           <option value="students_uid">UID</option>
           <option value="students_aadhar">Aadhar id</option>
         </select>
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="student_search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn btn-secondary" type="submit">Search</button>
 
       </form>
 
-     <a href = "{% url 'add_student' %} " class ="btn btn-primary mt-2" >Add Student</a>
-    <a href="{%  url 'home' %}" class="btn btn-primary mt-2">Back</a>
+
+{# change in div #}
+    <div style="text-align: center;">
+     <a href = "{% url 'add_student' %} " class ="btn btn-dark btn1" ><i class="bi bi-plus-square-dotted"></i> Add Student</a>
+    <a href= "{% url 'home' %}" class="btn btn-dark btn1"><i class="bi bi-arrow-left-circle"></i> Back</a>
+    </div>
 {%  endblock %}

@@ -93,20 +93,21 @@ class AddStudentForm(forms.ModelForm):
                           widget=forms.widgets.TextInput(
                               attrs={'placeholder': 'Date of Birth', 'class': 'form-control'}),
                           label='')
-    course = forms.ModelChoiceField(queryset=(Course.objects.all()), required=True,label='Course')
-
-    college = forms.ModelChoiceField(queryset=College.objects.all(), required=True, label='College')
-
     aadhar_id = forms.CharField(required=True,
                                widget=forms.widgets.TextInput(
                                    attrs={'placeholder': 'Aadhar ID ', 'class': 'form-control'}),
                                label='')
+    scheme = forms.ModelChoiceField(queryset=Scheme.objects.all(), required=False ,label='Scheme', blank=True)
 
-    state = forms.ModelChoiceField(queryset=State.objects.all(), required=True,label='State')
+    course = forms.ModelChoiceField(queryset=(Course.objects.all()), required=True,label='Course')
+
+    college = forms.ModelChoiceField(queryset=College.objects.all(), required=True, label='College')
+
+
 
     class Meta:
         model = Student
-        fields = ('first_name', 'last_name','uid', 'admission_year', 'date_of_birth', 'course', 'college', 'aadhar_id','state')
+        fields = ('first_name', 'last_name','uid', 'admission_year', 'date_of_birth','aadhar_id','scheme', 'course', 'college')
 
 
 class SearchStudentForm(forms.ModelForm):

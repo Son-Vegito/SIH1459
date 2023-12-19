@@ -4,8 +4,21 @@
 
     <div class="col-ms-6 mx-auto "  style="text-align: center;">
     {% if user.is_authenticated %}
-    <h1 class="text-center">Scheme</h1>
+    <h1>Scheme</h1>
         </div>
+
+         <form class="d-flex srch_dwn" method="POST" action="{% url 'schemes_search' %}">
+        {% csrf_token %}
+        <label for="search_by" class="srch">Search by</label>
+        <select name="search_by" id="search_by" class="srch_uid">
+
+          <option value="scheme_name">Scheme Name</option>
+          <option value="scheme_id">Scheme ID</option>
+        </select>
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="scheme_search">
+        <button class="btn btn-secondary" type="submit">Search</button>
+      </form>
+
     {% if scheme_records %}
 
     <table class="table table-striped table-hover table-bordered">
@@ -32,20 +45,10 @@
     <h1 class="text-center">Please log in to continue</h1>
 
     {% endif %}
-    <a href = "{% url 'home' %} " class ="btn btn-primary " >Go Back</a>
-    <a href = "{% url 'add_scheme' %} " class ="btn btn-primary " >Add Scheme</a>
+    <a href = "{% url 'home' %} " class ="btn btn-dark btn1 " ><i class="bi bi-arrow-left-circle"></i> Back</a>
+    <a href = "{% url 'add_scheme' %} " class ="btn btn-dark btn1 " ><i class="bi bi-plus-square-dotted"></i> Add Scheme</a>
     </div>
 
-    <form class="d-flex" method="POST" action="{% url 'schemes_search' %}">
-        {% csrf_token %}
-        <label for="search_by">Search by</label>
-        <select name="search_by" id="search_by">
 
-          <option value="scheme_name">Scheme Name</option>
-          <option value="scheme_id">Scheme ID</option>
-        </select>
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="scheme_search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
 
 {% endblock %}

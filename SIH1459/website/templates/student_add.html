@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <form class="d-flex" method="POST" action="{% url 'add_student' %}">
+        {% csrf_token %}
+        <label for="First_Name"> First Name</label>
+        <input class="form-control me-2" type="text" placeholder="First Name" aria-label="First Name" name="First_Name"
+               maxlength="100">
+
+        <br>
+        <label for="Last_Name"> Last Name</label>
+        <input class="form-control me-2" type="text" placeholder="Last Name" aria-label="Last Name" name="Last_Name"
+               maxlength="100">
+        <br>
+        <label for="admission_year">Admission Year</label>
+        <input type="number" min="1900" max="2099" step="1" value="2016" placeholder="admission Year"
+               aria-label="Date of birth" name="admission_year">
+        <br>
+        <label for="date_of_birth"> Date Of Birth</label>
+        <input type="date" name="date_of_birth" pattern="\d{4}-\d{2}-\d{2}" value="01-01-2002"
+               placeholder='date of birth' aria-label="Date of birth"/>
+        <br>
+        <label for="course_id">Course Id</label>
+        <input type="number" min="10" max="99" step="1" placeholder="Course Id" aria-label="course_id" name="course_id">
+        <br>
+
+        <label for="college_id">College id</label>
+        <input type="number" min="10000" max="99999" placeholder="College id" aria-label="College id" name="College id">
+        <br>
+
+        <label for="aadhar_id">College id</label>
+        <input type="number" min="100000000000" max="999999999999" placeholder="aadhar id" aria-label="aadhar id"
+               name="aadhar_id">
+        <br>
+
+        <label for="scheme">scheme id</label>
+        <input type="number" min="100" max="999" placeholder="scheme id" aria-label="scheme id" name="scheme id">
+        <br>
+
+
+        <button class="btn btn-outline-success" type="submit">Submit</button>
+
+    </form>
+{% endblock %}

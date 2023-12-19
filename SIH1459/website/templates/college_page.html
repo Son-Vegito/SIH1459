@@ -3,7 +3,7 @@
 {% block content %}
     <div class="col-ms-6 mx-auto "  style="text-align: center;">
     {% if user.is_authenticated %}
-    <h1 class="text-center">College</h1>
+    <h1>Colleges</h1>
         </div>
     {% if college_records %}
 
@@ -45,9 +45,9 @@
 
         <h1 class="text-center">Please log in to continue</h1>
     {% endif %}
-        <a href = "{% url 'home' %} " class ="btn btn-primary " >Go Back</a>
+        <a href = "{% url 'home' %} " class ="btn btn-dark btn1 " ><i class="bi bi-arrow-left-circle"></i> Back</a>
 
-    <a href = "{% url 'add_college' %} " class ="btn btn-primary " >Add College</a>
+    <a href = "{% url 'add_college' %} " class ="btn btn-dark btn1 " ><i class="bi bi-plus-square-dotted"></i> Add College</a>
 
         </div>
 

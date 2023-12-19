@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="col-md-6 offset-md-3">
+<div class="col-md-6 mx-auto shadow add_box ">
     <br>
     <h1>Add Student</h1>
     <form method="POST" action="{% url 'add_student' %}">
@@ -11,8 +11,8 @@
 
         <br>
         <div class="text-center">
-            <a href="{% url 'student_page' %}" class="btn btn-primary">Go Back</a>
-            <button type="submit" class="btn btn-primary">Add student</button>
+            <a href="{% url 'student_page' %}" class="btn btn-dark btn1"><i class="bi bi-arrow-left-circle"></i> Back</a>
+            <button type="submit" class="btn btn-dark btn1"><i class="bi bi-plus-square-dotted"></i> Add student</button>
         </div>
     </form>
 </div>

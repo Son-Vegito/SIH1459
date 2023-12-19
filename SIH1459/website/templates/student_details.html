@@ -1,61 +1,69 @@
 {% extends 'base.html' %}
-{%block content %}
+{% block content %}
+    {#    add two  new div#}
 
-<div class="card" style="width: 21rem; ">
-    <div class="card-header"><strong>{{ student.first_name }} {{ student.last_name }}</strong></div>
-    <div class="card-body">
-        <h5 class="card-title">Details</h5>
-        <p class="card-text ">
-            <strong>UID: </strong>{{ student.uid }} </br>
-            <strong>Admission Year: </strong>{{ student.admission_year }} </br>
-            <strong>Date Of Birth: </strong>{{ student.date_of_birth }} </br>
-            <strong>Course Id: </strong>{{ student.course }} </br>
-            <strong>College Id: </strong>{{ student.college }} </br>
-            <strong>Aadhar Id: </strong>{{ student.aadhar_id }} </br>
-            <strong>Scheme: </strong>{{ student.scheme}} </br>
+    <div class="row">
+        <div class="card col">
+            <div class="card-header card_title"><b>Student's Details</b></div>
+            <div class="card-body card_h">
+                <p class="card-text ">
+                    <strong>Name: </strong>{{ student.first_name }} {{ student.last_name }} </br>
+                    <strong>UID: </strong>{{ student.uid }} </br>
+                    <strong>Admission Year: </strong>{{ student.admission_year }} </br>
+                    <strong>Date Of Birth: </strong>{{ student.date_of_birth }} </br>
+                    <strong>Course Id: </strong>{{ student.course }} </br>
+                    <strong>College Id: </strong>{{ student.college }} </br>
+                    <strong>Aadhar Id: </strong>{{ student.aadhar_id }} </br>
+                    <strong>Scheme: </strong>{{ student.scheme }} </br>
 
-        </p>
-    </div>
-</div>
-
-
-<div class="card" style="width: 21rem; ">
-    <div class="card-header"><strong>{{ college.name }} </strong></div>
-    <div class="card-body">
-        <h5 class="card-title">Details</h5>
-        <p class="card-text ">
-            <strong>Code: </strong>{{ college.code }} </br>
-            <strong>State: </strong>{{ college.state }} </br>
-            <strong>City: </strong>{{ college.city }} </br>
-            <strong>Pincode: </strong>{{ college.pincode }} </br>
-            <strong>Address: </strong>{{ college.address}} </br>
-            <strong>Phone: </strong>{{ college.phone }} </br>
-
-        </p>
-    </div>
-</div>
-
-
-    <div class="card" style="width: 21rem; ">
-        <div class="card-header"><strong>{{ course.name }} </strong></div>
-        <div class="card-body">
-            <h5 class="card-title">Details</h5>
-            <p class="card-text ">
-                <strong>Code: </strong>{{ course.code }} </br>
-                <strong>Duration: </strong>{{ course.duration }} </br>
-            </p>
+                </p>
+            </div>
         </div>
 
-    </div>
 
-    <div class="card" style="width: 21rem;">
-        <div class="card-header"><strong>{{ scheme.name }} </strong></div>
-        <div class="card-body">
-            <h5 class="card-title">Details</h5>
-            <p class="card-text ">
-                <strong>Code: </strong>{{scheme.id}} </br>
-            </p>
+        <div class="card col ">
+            <div class="card-header card_title"><b>College's Details</b></div>
+            <div class="card-body card_h">
+                <p class="card-text ">
+                    <strong>Name: </strong>{{ college.name }} </br>
+                    <strong>Code: </strong>{{ college.code }} </br>
+                    <strong>State: </strong>{{ college.state }} </br>
+                    <strong>City: </strong>{{ college.city }} </br>
+                    <strong>Pincode: </strong>{{ college.pincode }} </br>
+                    <strong>Address: </strong>{{ college.address }} </br>
+                    <strong>Phone: </strong>{{ college.phone }} </br>
+
+                </p>
+            </div>
         </div>
-    </div>
 
-    {% endblock %}
+
+        <div class="card col ">
+            <div class="card-header card_title"><b>Course's Details</b></div>
+            <div class="card-body card_h">
+                <p class="card-text ">
+                    <strong>Name: </strong>{{ course.name }} </br>
+                    <strong>Code: </strong>{{ course.code }} </br>
+                    <strong>Duration: </strong>{{ course.duration }} </br>
+                </p>
+            </div>
+
+        </div>
+
+        {% if scheme %}
+        <div class="card col">
+            <div class="card-header card_title"><b>Scheme's Details:-</b></div>
+            <div class="card-body card_h">
+                <p class="card-text ">
+                    <strong>Name: </strong>{{ scheme.name }} </br>
+                    <strong>Code: </strong>{{ scheme.id }} </br>
+                </p>
+            </div>
+        </div>
+    {% endif %}
+    </div>
+        <a href="{% url 'home' %}" class ="btn btn-dark btn1 " ><i class="bi bi-house-door"></i> Home</a>
+    <a href="{% url 'update_student' student.uid %}" class ="btn btn-dark btn1 " >update student</a>
+
+
+{% endblock %}

@@ -1,0 +1,117 @@
+.log{
+    position: absolute; top: 8px; right:10px;
+}
+
+.logo{
+    height: auto; width: 40px;
+}
+.dash_box {
+    background: lightgrey;
+    padding: 1px;
+    border-radius: 20px;
+}
+.home_page{
+    margin-top: 3% !important;
+
+}
+
+.flex_1
+{
+    width: 15%;
+}
+.bi-person-circle
+{
+    font-size: larger;
+}
+
+
+
+
+
+/*my changes*/
+
+
+
+
+.home_page_icon{
+    font-size: 200%;
+}
+
+.img_home{
+    height: 350px;
+    margin-top: 40px;
+}
+
+#home_login{
+   text-align: center;
+    margin-top: 4%;
+}
+.login_box {
+    background: lightgrey;
+    border-radius: 10px;
+    padding-top: 2px;
+    padding-bottom: 30px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 5%;
+}
+.user_box{
+    width: 65%;
+    margin-left:18% ;
+}
+h1,h2{
+    text-align: center;
+    font-weight: bold;
+}
+.srch
+{
+    width: 10%;
+    margin: auto;
+    font-weight: bold;
+}
+.srch_uid{
+    margin-right:4px;
+    border-radius: 6px;
+}
+
+/*again*/
+.btn1{
+    margin-top: 10px;
+}
+.srch_dwn{
+    margin-bottom: 20px;
+}
+.add_box{
+    border-radius: 10px;
+    width: 60%;
+    padding: 0 5% 5% 5%;
+    margin-bottom: 10%;
+    margin-top: 20px;
+    background: #EEEEEE;
+}
+
+
+/*suraj changes*/
+
+
+
+
+
+.card_title{
+    text-align: center;
+}
+.card{
+
+    background:lightgray;
+    width: 21rem;
+     margin: 15px;
+    padding: 0;
+    border: 5px black;
+
+}
+
+.card_h{
+
+    background-color: white;
+    margin: 0;
+}

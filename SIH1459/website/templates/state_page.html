@@ -3,7 +3,7 @@
 {% block content %}
     <div class="col-ms-6 mx-auto "  style="text-align: center;">
     {% if user.is_authenticated %}
-    <h1 class="text-center">State</h1>
+    <h1>State</h1>
         </div>
     {% if state_records %}
 
@@ -35,6 +35,6 @@
 
     {% endif %}
 
-    <a href = "{% url 'home' %} " class ="btn btn-primary " >Go Back</a>
+    <a href = "{% url 'home' %} " class ="btn btn-dark btn1 " ><i class="bi bi-arrow-left-circle"></i> Back</a>
     </div>
 {% endblock %}

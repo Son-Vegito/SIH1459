@@ -1,20 +1,22 @@
 {% extends 'base.html' %}
 {%block content %}
 
-<div class="card" style="width: 21rem; ">
-    <div class="card-header"><strong>{{ college.name }} </strong></div>
-    <div class="card-body">
-        <h5 class="card-title">Details</h5>
-        <p class="card-text ">
-            <strong>Code: </strong>{{ college.code }} </br>
-            <strong>State: </strong>{{ college.state }} </br>
-            <strong>City: </strong>{{ college.city }} </br>
-            <strong>Pincode: </strong>{{ college.pincode }} </br>
-            <strong>Address: </strong>{{ college.address}} </br>
-            <strong>Phone: </strong>{{ college.phone }} </br>
+<div class="card col ">
+            <div class="card-header card_title"><b>College's Details</b></div>
+            <div class="card-body card_h">
+                <p class="card-text ">
+                    <strong>Name: </strong>{{ college.name }} </br>
+                    <strong>Code: </strong>{{ college.code }} </br>
+                    <strong>State: </strong>{{ college.state }} </br>
+                    <strong>City: </strong>{{ college.city }} </br>
+                    <strong>Pincode: </strong>{{ college.pincode }} </br>
+                    <strong>Address: </strong>{{ college.address }} </br>
+                    <strong>Phone: </strong>{{ college.phone }} </br>
 
-        </p>
-    </div>
-</div>
+                </p>
+            </div>
+        </div>
+            <a href="{{request.META.HTTP_REFERER}}"class ="btn btn-dark btn1 " ><i class="bi bi-arrow-left-circle"></i> Back</a>
+
 
     {% endblock %}
