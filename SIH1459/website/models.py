@@ -1,10 +1,11 @@
 from django.db import models
+from django.core.validators import MaxLengthValidator, MinLengthValidator
 
 
 # Create your models here.
 class State(models.Model):
     name = models.CharField('State Name',max_length=50)
-    code = models.CharField('State Code', primary_key=True, max_length=2)
+    code = models.CharField('State Code', primary_key=True,  max_length=2, validators=[MinLengthValidator(2), MaxLengthValidator(2)])
 
     class Meta:
         indexes = [
@@ -17,12 +18,12 @@ class State(models.Model):
 
 class College(models.Model):
     name = models.CharField('College Name', max_length=100)
-    code = models.CharField('College Code', primary_key=True, max_length=5)
+    code = models.CharField('College Code', primary_key=True, max_length=5, validators=[MinLengthValidator(5), MaxLengthValidator(5)])
     state = models.ForeignKey(State, blank=False, null=False, on_delete=models.CASCADE)
-    city = models.CharField('College City',max_length=100)
-    pincode = models.CharField('College Pincode', max_length=6)
+    city = models.CharField('College City', max_length=100)
+    pincode = models.CharField('College Pincode',max_length=6, validators=[MinLengthValidator(6), MaxLengthValidator(6)])
     address = models.CharField('College Address',max_length=200)
-    phone = models.CharField('College Phone',max_length=10)
+    phone = models.CharField('College Phone',max_length=10, validators=[MinLengthValidator(10), MaxLengthValidator(10)])
     created_at = models.DateTimeField('College Creation Date', auto_now_add=True)
 
     class Meta:
@@ -35,8 +36,8 @@ class College(models.Model):
 
 
 class Course(models.Model):
-    name = models.CharField('Course Name',max_length=100)
-    code = models.CharField('Course Code', primary_key=True, max_length=2)
+    name = models.CharField('Course Name', max_length=100)
+    code = models.CharField('Course Code', primary_key=True,max_length=3, validators=[MinLengthValidator(3), MaxLengthValidator(3)])
     duration = models.IntegerField('Course Duration')
     created_at = models.DateTimeField('Course Creation Date', auto_now_add=True)
 
@@ -50,8 +51,8 @@ class Course(models.Model):
 
 
 class Scheme(models.Model):
-    name = models.CharField('Scheme Name', null=False, blank=False,max_length=100)
-    id = models.DecimalField('Scheme Id', primary_key=True, max_length=2, max_digits=2, decimal_places=0)
+    name = models.CharField('Scheme Name', null=False, blank=False, max_length=100)
+    id = models.CharField('Scheme Id', primary_key=True,max_length=3, validators=[MinLengthValidator(3), MaxLengthValidator(3)])
     created_at = models.DateTimeField('Scheme Creation Date', auto_now_add=True)
 
     class Meta:
@@ -66,14 +67,14 @@ class Scheme(models.Model):
 class Student(models.Model):
     first_name = models.CharField('First Name',max_length=100)
     last_name = models.CharField('Last Name',max_length=100)
-    uid = models.CharField('UID', primary_key=True, max_length=14)
-    admission_year = models.IntegerField('Admission Year')
+    uid = models.CharField('UID', primary_key=True, max_length=15, validators=[MinLengthValidator(13), MaxLengthValidator(13)])
+    admission_year = models.CharField('Admission Year', max_length=4, validators=[MinLengthValidator(4), MaxLengthValidator(4)])
     date_of_birth = models.DateField('Date of Birth', null=False, blank=False)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    college = models.ForeignKey(College, on_delete=models.CASCADE)
+    college = models.ForeignKey(College, on_delete=models.CASCADE,)
     created_at = models.DateTimeField('Student Creation Date', auto_now_add=True)
-    aadhar_id = models.CharField('Aadhar ID', max_length=12)
-    scheme = models.ForeignKey(Scheme, on_delete=models.SET_NULL, null=True)
+    aadhar_id = models.CharField('Aadhar ID', max_length=15,validators=[MinLengthValidator(12), MaxLengthValidator(12)])
+    scheme = models.ForeignKey(Scheme, on_delete=models.SET_NULL, null=True, blank=True)
 
     class Meta:
         indexes = [
