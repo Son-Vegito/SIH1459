@@ -302,6 +302,16 @@ def update_student(request, uid):
         return redirect('home')
 
 
+def delete_student(request, uid):
+    if request.user.is_authenticated:
+        delete_it = Student.objects.get(uid=uid)
+        delete_it.delete()
+        messages.success(request, "Student Record deleted successfully")
+        return redirect('home')
+    else:
+        messages.success(request, "You must be Logged in to do that")
+        return redirect('home')
+
 
 def base(request):
     return render(request, 'base.html', {})
