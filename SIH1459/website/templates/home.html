@@ -42,13 +42,14 @@
             </button>
         </div>
 
-        <!-- about section-->
+{#   about section#}
+        <br><br>
 
         <section id="about" class="about section-padding">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-12">
-                        <div >
+                        <div>
                             <img src="{% static '/bulding.jpg' %}" alt="" class="image-fluid about-img">
                         </div>
                     </div>
@@ -67,6 +68,31 @@
                 </div>
             </div>
         </section>
+
+
+        {#        add your vision and objective #}
+        <br><br><br>
+        <div class="container text-center">
+            <div class="row justify-content-evenly">
+                <div class="col shadow our">
+                    <h5 id="our_vision">Our Vision</h5>
+                    <p> "To be a world-class organization leading technological and socio-economic development of the
+                        country by
+                        enhancing the global competitiveness of technical manpower and by ensuring high quality
+                        technical
+                        education to all section of the
+                        society.</p>
+                </div>
+                <div class="col shadow our">
+                    <h5 id="our_objectives">Our Objectives</h5>
+
+                    <p>Promotion of Quality in Technical Education <br>Planning and Coordinated Development of Technical
+                        Education
+                        System<br> Regulations and Maintenance of Norms and Standards</p>
+                </div>
+            </div>
+
+        </div>
 
     {% else %}
         <div class="wlcm"><h3>Welcome To AICTE</h3><br>

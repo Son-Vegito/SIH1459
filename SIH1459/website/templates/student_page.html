@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+    <h1>Search</h1>
     <form class="d-flex srch_dwn" method="POST" action="{% url 'student_search' %}">
         {% csrf_token %}
         <label for="search_by" class="srch">Search by</label>
