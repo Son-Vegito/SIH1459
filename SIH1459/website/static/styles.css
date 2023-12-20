@@ -9,11 +9,11 @@
     width: 40px;
 }
 
-.dash_box {
-    background: lightgrey;
-    padding: 1px;
-    border-radius: 20px;
-}
+/*.dash_box {*/
+/*    background: lightgrey;*/
+/*    padding: 1px;*/
+/*    border-radius: 20px;*/
+/*}*/
 
 .home_page {
     margin-top: 3% !important;
@@ -124,12 +124,28 @@ h3 {
     width: 106%; /* Set a small width */
     margin-top: 14%;
 }
-
-.foot{
-    text-align: center;
-    background-color: white;
-
+h5{
+    font-size: 25px;
 }
+.navlink{
+    margin-left: 770px;
+    margin-bottom: 5px;
+}
+.our{
+    border-radius: 5%;
+    background: #B6C4B6;
+    margin:0px 40px 0px 40px;
+    padding-top: 10px;
+}
+footer{
+    background: #7C93C3;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+
+
 
 /*suraj changes*/
 
@@ -152,4 +168,8 @@ h3 {
 
     background-color: white;
     margin: 0;
+}
+
+.navbar-brand{
+    font-size: 16px;
 }
