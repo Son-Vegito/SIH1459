@@ -5,8 +5,8 @@ from .models import Scheme, Course, College,State,Student
 
 
 class AddSchemeForm(forms.ModelForm):
-    id = forms.DecimalField(required=True,
-                         widget=forms.widgets.TextInput(attrs={'placeholder': 'Scheme ID', 'class': 'form-control'}),
+    id = forms.CharField(required=True,
+                         widget=forms.widgets.NumberInput(attrs={'placeholder': 'Scheme ID', 'class': 'form-control'}),
                          label='')
     name = forms.CharField(required=True,
                            widget=forms.widgets.TextInput(
@@ -20,7 +20,7 @@ class AddSchemeForm(forms.ModelForm):
 
 class AddCourseForm(forms.ModelForm):
     code = forms.CharField(required=True,
-                           widget=forms.widgets.TextInput(
+                           widget=forms.widgets.NumberInput(
                                attrs={'placeholder': 'Course Code', 'class': 'form-control'}),
                            label='')
     name = forms.CharField(required=True,
@@ -28,7 +28,7 @@ class AddCourseForm(forms.ModelForm):
                                attrs={'placeholder': 'Course Name', 'class': 'form-control'}),
                            label='')
     duration = forms.CharField(required=True,
-                                  widget=forms.widgets.TextInput(
+                                  widget=forms.widgets.NumberInput(
                                       attrs={'placeholder': 'Course Duration', 'class': 'form-control'}),
                                   label='')
 
@@ -42,7 +42,7 @@ class AddCollegeForm(forms.ModelForm):
                                attrs={'placeholder': 'College Name', 'class': 'form-control'}),
                            label='')
     code = forms.CharField(required=True,
-                           widget=forms.widgets.TextInput(
+                           widget=forms.widgets.NumberInput(
                                attrs={'placeholder': 'College Code', 'class': 'form-control'}),
                            label='')
     state = forms.ModelChoiceField(queryset=State.objects.all(), required=True,label='College State')
@@ -53,7 +53,7 @@ class AddCollegeForm(forms.ModelForm):
                                label='')
 
     pincode = forms.CharField(required=True,
-                           widget=forms.widgets.TextInput(
+                           widget=forms.widgets.NumberInput(
                                attrs={'placeholder': 'College pincode', 'class': 'form-control'}),
                            label='')
 
@@ -62,7 +62,7 @@ class AddCollegeForm(forms.ModelForm):
                                attrs={'placeholder': 'College address', 'class': 'form-control'}),
                            label='')
     phone = forms.CharField(required=True,
-                           widget=forms.widgets.TextInput(
+                           widget=forms.widgets.NumberInput(
                                attrs={'placeholder': 'College phone', 'class': 'form-control'}),
                            label='')
 
@@ -80,26 +80,26 @@ class AddStudentForm(forms.ModelForm):
                            widget=forms.widgets.TextInput(
                                attrs={'placeholder': 'Last Name', 'class': 'form-control'}),
                            label='')
+    serial_no = forms.CharField(required=False,
+                                widget=forms.widgets.NumberInput(
+                                    attrs={'placeholder': 'Serial_no', 'class': 'form-control'}),
+                                label='')
 
-    uid = forms.CharField(required=True,
-                           widget=forms.widgets.TextInput(
-                               attrs={'placeholder': 'Unique ID', 'class': 'form-control'}),
-                           label='')
     admission_year = forms.CharField(required=True,
-                          widget=forms.widgets.TextInput(
+                          widget=forms.widgets.NumberInput(
                               attrs={'placeholder': 'Admission Year', 'class': 'form-control'}),
                           label='')
-    date_of_birth = forms.CharField(required=True,
-                          widget=forms.widgets.TextInput(
+    date_of_birth = forms.DateField(required=True,
+                          widget=forms.widgets.DateInput(
                               attrs={'placeholder': 'Date of Birth', 'class': 'form-control'}),
                           label='')
     aadhar_id = forms.CharField(required=True,
-                               widget=forms.widgets.TextInput(
+                               widget=forms.widgets.NumberInput(
                                    attrs={'placeholder': 'Aadhar ID ', 'class': 'form-control'}),
                                label='')
     scheme = forms.ModelChoiceField(queryset=Scheme.objects.all(), required=False ,label='Scheme', blank=True)
 
-    course = forms.ModelChoiceField(queryset=(Course.objects.all()), required=True,label='Course')
+    course = forms.ModelChoiceField(queryset=Course.objects.all(), required=True,label='Course')
 
     college = forms.ModelChoiceField(queryset=College.objects.all(), required=True, label='College')
 
@@ -107,7 +107,7 @@ class AddStudentForm(forms.ModelForm):
 
     class Meta:
         model = Student
-        fields = ('first_name', 'last_name','uid', 'admission_year', 'date_of_birth','aadhar_id','scheme', 'course', 'college')
+        fields = ('first_name', 'last_name', 'serial_no', 'admission_year', 'date_of_birth', 'aadhar_id', 'scheme', 'course' , 'college')
 
 
 class SearchStudentForm(forms.ModelForm):
@@ -121,23 +121,20 @@ class SearchStudentForm(forms.ModelForm):
                                attrs={'placeholder': 'Last Name', 'class': 'form-control'}),
                            label='')
 
-    uid = forms.CharField(required=False,
-                           widget=forms.widgets.TextInput(
-                               attrs={'placeholder': 'Unique ID', 'class': 'form-control'}),
-                           label='')
+
     # admission_year = forms.ModelChoiceField(queryset=Student.admission_year.objects.all(), required=False,blank=True, label='Admission Year')
 
-    course = forms.ModelChoiceField(queryset=Course.objects.all(), required=False,label='Course')
+    course = forms.ModelChoiceField(queryset=Course.objects.all(), required=False, label='Course')
 
     college = forms.ModelChoiceField(queryset=College.objects.all(), required=False, label='College')
 
     aadhar_id = forms.CharField(required=False,
-                               widget=forms.widgets.TextInput(
+                               widget=forms.widgets.NumberInput(
                                    attrs={'placeholder': 'Aadhar ID ', 'class': 'form-control'}),
                                label='')
 
-    scheme = forms.ModelChoiceField(queryset=Scheme.objects.all(), required=False,label='Scheme')
+    scheme = forms.ModelChoiceField(queryset=Scheme.objects.all(), required=False, label='Scheme')
 
     class Meta:
         model = Student
-        fields = ('first_name', 'last_name','uid', 'course', 'college', 'aadhar_id')
+        fields = ('first_name', 'last_name','serial_no', 'course', 'college', 'aadhar_id')
