@@ -7,15 +7,15 @@
         <h1>Dashboard</h1>
         <div class="col-ms-6 mx-auto home_page d-flex justify-content-evenly">
             <a href="{% url 'student_page' %}" class="btn btn-dark flex_1"><i
-                    class="bi bi-people home_page_icon"></i><br/>Student records</a>
+                    class="bi bi-people home_page_icon" ></i><h4>{{ students }}</h4><br>Student records</a>
             <a href="{% url 'courses_page' %}" class="btn btn-dark flex_1"><i
-                    class="bi bi-mortarboard home_page_icon"></i><br/>Courses</a>
+                    class="bi bi-mortarboard home_page_icon"></i><h4>{{ course}}</h4><br>Courses</a>
             <a href="{% url 'schemes_page' %}" class="btn btn-dark flex_1"><i
-                    class="bi bi-journal-text home_page_icon"></i><br/>Schemes</a>
+                    class="bi bi-journal-text home_page_icon" ></i><h4>{{ scheme }}</h4><br>Schemes</a>
             <a href="{% url 'state_page' %}" class="btn btn-dark flex_1"><i
-                    class="bi bi-geo-alt home_page_icon"></i><br/>States </a>
+                    class="bi bi-geo-alt home_page_icon" ></i><h4>{{ state }}</h4><br>States </a>
             <a href="{% url 'college_page' %}" class="btn btn-dark flex_1"><i
-                    class="bi bi-buildings home_page_icon"></i><br/>Colleges</a>
+                    class="bi bi-buildings home_page_icon"></i><h4>{{ college }}</h4><br>Colleges</a>
         </div>
 
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -96,9 +96,7 @@
 
     {% else %}
         <div class="wlcm"><h3>Welcome To AICTE</h3><br>
-            <p class="parag">The beginning of formal technical education in India can be dated back <br>to the mid-19th
-                century.The
-                All India Council for Technical Education <br>(AICTE) is a premier national body established by an Act
+            <p class="parag">The All India Council for Technical Education <br>(AICTE) is a premier national body established by an Act
                 of Parliament to<br> ensure the coordinated development and quality assurance of technical<br> education
                 in India. Founded in 1945, AICTE has been instrumental in<br> fostering excellence in engineering,
                 technology, management, and other <br>allied disciplines.</p>

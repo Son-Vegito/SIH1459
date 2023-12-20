@@ -1,7 +1,13 @@
 .log {
     position: absolute;
-    top: 8px;
+    /*top: 8px;*/
     right: 10px;
+    top: 4px;
+    bottom: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+
 }
 
 .logo {
@@ -22,6 +28,9 @@
 
 .flex_1 {
     width: 15%;
+    text-align: left;
+    font-size: 17px;
+    font-weight: bold;
 }
 
 .bi-person-circle {
@@ -34,6 +43,7 @@
 
 .home_page_icon {
     font-size: 200%;
+float: right ;margin-top: 10px;
 }
 
 .img_home {
@@ -65,6 +75,7 @@ h1, h2 {
     text-align: center;
     font-weight: bold;
     font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+    font-size: 50px;
 }
 
 .srch {
@@ -93,7 +104,7 @@ h1, h2 {
     padding: 0 5% 5% 5%;
     margin-bottom: 10%;
     margin-top: 20px;
-    background: #B6C4B6;
+    background: #DED0B6;
 }
 
 /*phirse*/
@@ -128,12 +139,12 @@ h5{
     font-size: 25px;
 }
 .navlink{
-    margin-left: 770px;
-    margin-bottom: 5px;
+    /*margin-left: 770px;*/
+    /*margin-bottom: 5px;*/
 }
 .our{
     border-radius: 5%;
-    background: #B6C4B6;
+    background: #DED0B6;
     margin:0px 40px 0px 40px;
     padding-top: 10px;
 }
@@ -172,4 +183,15 @@ footer{
 
 .navbar-brand{
     font-size: 16px;
+    text-align: center;
+
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-right: 0px;
+
+}
+h4{
+    /*font-weight: bold;*/
+    font-size: 30px;
+    margin-bottom: 0px;
 }
