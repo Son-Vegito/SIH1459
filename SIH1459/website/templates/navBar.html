@@ -2,7 +2,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}"><img class="logo" src="{% static '/aicte_logo1.png' %}" alt="">
+    <img class="logo" src="{% static '/aicte_logo1.png' %}" alt="">
+        <a class="navbar-brand ms-3 me-2" href="{% url 'home' %}">
             AICTE <i class="bi bi-house-door"></i></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -22,10 +23,13 @@
                     </li>
 
                     {% if request.path == '/' %}
-                        <div class="navlink">
-                            <a class="navbar-brand " href="#about">About</a>
-                            <a class="navbar-brand" href="#our_vision">Vision</a>
-                            <a class="navbar-brand" href="#our_objectives">Objectives</a>
+                        <div class="container navlink ">
+                        <div class="row justify-content-end">
+                            <div class="col"><a class="navbar-brand " href="#about">About</a></div>
+                            <div class="col"><a class="navbar-brand" href="#our_vision">Vision</a></div>
+                            <div class="col"><a class="navbar-brand" href="#our_objectives">Objectives</a></div>
+
+                        </div>
                         </div>
                     {% endif %}
 

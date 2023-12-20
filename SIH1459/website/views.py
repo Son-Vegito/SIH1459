@@ -22,7 +22,12 @@ def home(request):
             messages.success(request, 'ERROR! Invalid Credential')
             return redirect('home')
     else:
-        return render(request, 'home.html')
+        students = Student.objects.count()
+        course = Course.objects.count()
+        college = College.objects.count()
+        scheme = Scheme.objects.count()
+        state = State.objects.count()
+        return render(request, 'home.html', {'students': students, 'course': course, 'college': college, 'scheme': scheme, 'state': state})
 
 
 def logout_user(request):
@@ -311,6 +316,13 @@ def delete_student(request, uid):
     else:
         messages.success(request, "You must be Logged in to do that")
         return redirect('home')
+
+
+# def student_add(request):
+#     if request.user.is_authenticated:
+#         if request.method == 'POST':
+
+
 
 
 def base(request):
