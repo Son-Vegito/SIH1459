@@ -8,9 +8,12 @@ urlpatterns = [
     path("student_page", views.student_page, name='student_page'),
     path("student_search", views.student_search, name='student_search'),
     path('add_student/', views.add_student, name='add_student'),
+    path('current_student/', views.current_student, name='current_student'),
+    path('old_student/', views.old_student, name='old_student'),
     path('student_details/<int:uid>', views.student_details, name='student_details'),
     path('update_student/<int:uid>',views.update_student,name='update_student'),
     path('delete_student/<int:uid>',views.delete_student,name='delete_student'),
+    path('more_search_student',views.more_search_student,name='more_search_student'),
     # path('student_search',views.student_search,name='student_search'),
 
     path("courses_page", views.courses_page, name='courses_page'),

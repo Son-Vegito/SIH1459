@@ -17,7 +17,11 @@
 
 {# change in div #}
     <div style="text-align: center;">
+{#        <a href= "{% url 'more_search_student' %}" class="btn btn-dark btn1">More Search Options</a>#}
+{#        <br>#}
         <a href= "{% url 'home' %}" class="btn btn-dark btn1"><i class="bi bi-arrow-left-circle"></i> Back</a>
         <a href = "{% url 'add_student' %} " class ="btn btn-dark btn1" ><i class="bi bi-plus-square-dotted"></i> Add Student</a>
+        <a href= "{% url 'current_student' %}" class="btn btn-dark btn1">Current Student</a>
+        <a href= "{% url 'old_student' %}" class="btn btn-dark btn1">Old Student</a>
     </div>
 {%  endblock %}

@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -263,7 +264,7 @@ def student_details(request, uid):
         if student.scheme:
             scheme = Scheme.objects.get(name=student.scheme)
             return render(request, 'student_details.html',
-                          {'student': student, 'college': college, 'course': course, 'scheme': scheme})
+                          {'student': student,'college': college,'course':course ,'scheme': scheme})
         else:
             return render(request, 'student_details.html', {'student': student, 'college': college, 'course': course})
     else:
@@ -281,8 +282,9 @@ def state_college(request, state_code):
 # show students in college
 def college_student(request, college_code):
     college = College.objects.get(code=college_code)
-    students=college.student_set.all()
-    return render(request, 'college_student.html', {'students': students, 'college':college})
+    students = college.student_set.all()
+    return render(request, 'college_student.html', {'students': students, 'college': college})
+
 
 def college_details(request, college_code):
     if request.user.is_authenticated:
@@ -322,6 +324,31 @@ def delete_student(request, uid):
 #     if request.user.is_authenticated:
 #         if request.method == 'POST':
 
+
+def current_student(request):
+    if request.user.is_authenticated:
+        current_students = Student.objects.filter(admission_year__gte=datetime.now().year - 5)
+        return render(request, 'current_student.html', {'current_students': current_students})
+    else:
+        messages.success(request, 'You must be logged in ')
+        return redirect(home)
+
+
+def old_student(request):
+    if request.user.is_authenticated:
+        old_students = Student.objects.filter(admission_year__lt=datetime.now().year - 5)
+        return render(request, 'old_student.html', {'old_students': old_students})
+    else:
+        messages.success(request, 'You must be logged in ')
+        return redirect(home)
+
+
+def more_search_student(request):
+    if request.user.is_authenticated:
+        return render(request, 'more_search_student.html', {})
+    else:
+        messages.success(request, 'Please log in first')
+        return redirect('home')
 
 
 

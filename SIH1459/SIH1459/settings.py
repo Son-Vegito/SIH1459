@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'aicte_db',
         'USER': 'root',
-        'PASSWORD': 'Viv@9411',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '3306'
     }
